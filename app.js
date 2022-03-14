@@ -3,15 +3,12 @@
 const venom = require('venom-bot');
 const express = require('express');
 const { phoneNumberFormatter } = require('./helpers/formatter');
-const port = process.env.PORT || 1211;
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.listen(port, function(){
-    console.log('App Running on http://localhost:'+port)
-});
+
 
 
 
@@ -35,6 +32,10 @@ function listenPort(client){
     })
 
     start(client);
+
+    app.listen((process.env.PORT || 5000), function(){
+        console.log('App Running on http://localhost:'+ (process.env.PORT || 5000))
+    });
 }
 
 
@@ -76,3 +77,7 @@ function start(client) {
         }
     });
 }
+
+// app.listen(port, function(){
+//     console.log('App Running on http://localhost:'+port)
+// });
