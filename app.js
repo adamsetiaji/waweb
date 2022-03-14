@@ -9,6 +9,9 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.listen(port, function(){
+    console.log('App Running on http://localhost:'+port)
+});
 
 
 
@@ -32,10 +35,6 @@ function listenPort(client){
     })
 
     start(client);
-
-    app.listen(port, function(){
-        console.log('App Running on http://localhost:'+port)
-    });
 }
 
 
